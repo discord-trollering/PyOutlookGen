@@ -1,0 +1,7 @@
+httpx~=0.23.3
+h2
+socksio
+colr~=0.9.1
+pycryptodome
+pyexecjs
+brotli
