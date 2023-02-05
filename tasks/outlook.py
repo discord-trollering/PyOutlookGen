@@ -1,3 +1,5 @@
+import secrets
+
 from tasks import packagepwd
 from httpx import Client, post
 import datetime
@@ -27,16 +29,16 @@ class OutlookResponse(object):
 
 class OutlookAccount(object):
     def __init__(self, proxy: str) -> None:
-        super().__init__()
         self.cipher = None
         self.client = Client(proxies=proxy)
         self.agent = f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " \
-                     f"Chrome/112.0.0.0 Safari/537.36"
+                     f"Chrome/{random.randint(77, 108)}.0.{random.randint(1000, 9999)}." \
+                     f"{random.randint(0, 144)} Safari/537.36"
         self.captcha_site_key = "B7D8911C-5CC8-A9A3-35B0-554ACEE604DA"
         self.signup_url = f"https://signup.live.com/signup?lic=1"
         self.create_url = f"https://signup.live.com/API/CreateAccount?lic=1"
         self.password = "".join(random.choices(string.ascii_letters + string.digits, k=16))
-        self.first_name = random_alphabetic_string(8)
+        self.first_name = random_alphabetic_string(16)
         self.last_name = random_alphabetic_string(8)
         self.email = f"{self.first_name}{self.last_name}@{config.get('domain')}".lower()
         self.birthday = self._get_birthday()
@@ -54,17 +56,18 @@ class OutlookAccount(object):
     @staticmethod
     def _hand_error(code: str):
         errors = {
-            "1040": "Text Captcha",
+            "403": "Bad Username",
+            "1040": "SMS Needed",
             "1041": "Enforcement Captcha",
+            "1042": "Text Captcha",
             "1043": "Invalid Captcha",
-            "1042": "SMS Needed",
+            "1312": "Captcha Error",
             "450": "Daily Limit Reached",
             "1304": "OTP Invalid",
             "1324": "Verification SLT Invalid",
             "1058": "Username Taken",
             "1117": "Domain Blocked",
             "1181": "Reserved Domain",
-            "403": "Bad Username",
             "1002": "Incorrect Password",
             "1009": "Password Conflict",
             "1062": "Invalid Email Format",
@@ -141,7 +144,7 @@ class OutlookAccount(object):
             "CipherValue": self.cipher,
             "SKI": self.ski,
             "BirthDate": self.birthday,
-            "Country": "AE",
+            "Country": "CA",
             "AltEmail": None,
             "IsOptOutEmailDefault": True,
             "IsOptOutEmailShown": True,
@@ -169,16 +172,15 @@ class OutlookAccount(object):
             })
         return body
 
-    @staticmethod
-    def _retry_solve():
+    def _retry_solve(self):
         while True:
             try:
                 result = post("http://captcha-api.slave-auction.shop/solve/fc", json={
                     "api_key": config.get("api-key"),
-                    "site_key": "B7D8911C-5CC8-A9A3-35B0-554ACEE604DA",
+                    "site_key": self.captcha_site_key,
                     "site_url": "https://iframe.arkoselabs.com",
                     "data": {
-                        "blob": "undefined"
+                        "blob": None
                     }
                 }, timeout=100000).json()
                 if result.get("error") is None:
