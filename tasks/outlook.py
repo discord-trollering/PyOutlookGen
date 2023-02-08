@@ -8,7 +8,8 @@ import string
 import json
 
 
-config = json.load(open("config.json"))
+config: dict = json.load(open("config.json"))
+domains: dict = json.load(open("templates/domains.json"))
 
 
 def fix_text(text) -> str:
@@ -34,13 +35,14 @@ class OutlookAccount(object):
         self.agent = f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " \
                      f"Chrome/{random.randint(77, 108)}.0.{random.randint(1000, 9999)}." \
                      f"{random.randint(0, 144)} Safari/537.36"
+        self.domain = random.choice(domains)
         self.captcha_site_key = "B7D8911C-5CC8-A9A3-35B0-554ACEE604DA"
-        self.signup_url = f"https://signup.live.com/signup?lic=1"
+        self.signup_url = f"https://signup.live.com/signup?lic=1&mkt={self.domain.get('mkt')}"
         self.create_url = f"https://signup.live.com/API/CreateAccount?lic=1"
         self.password = "".join(random.choices(string.ascii_letters + string.digits, k=16))
         self.first_name = random_alphabetic_string(16)
         self.last_name = random_alphabetic_string(8)
-        self.email = f"{self.first_name}{self.last_name}@{config.get('domain')}".lower()
+        self.email = f"{self.first_name}{self.last_name}@{self.domain.get('domain')}".lower()
         self.birthday = self._get_birthday()
         self.key = None
         self.ski = None
@@ -144,7 +146,7 @@ class OutlookAccount(object):
             "CipherValue": self.cipher,
             "SKI": self.ski,
             "BirthDate": self.birthday,
-            "Country": "CA",
+            "Country": self.domain.get('country'),
             "AltEmail": None,
             "IsOptOutEmailDefault": True,
             "IsOptOutEmailShown": True,

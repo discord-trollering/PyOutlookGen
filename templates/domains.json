@@ -1,0 +1,132 @@
+[
+  {
+    "country": "AU",
+    "domain": "outlook.com.au",
+    "mkt": "en-AU"
+  },
+  {
+    "country": "AR",
+    "domain": "outlook.com.ar",
+    "mkt": "es-AR"
+  },
+  {
+    "country": "ES",
+    "domain": "outlook.es",
+    "mkt": "es-ES"
+  },
+  {
+    "country": "AT",
+    "domain": "outlook.at",
+    "mkt": "at-AT"
+  },
+  {
+    "country": "CZ",
+    "domain": "outlook.cz",
+    "mkt": "cz-CZ"
+  },
+  {
+    "country": "DK",
+    "domain": "outlook.dk",
+    "mkt": "dk-DK"
+  },
+  {
+    "country": "GR",
+    "domain": "outlook.com.gr",
+    "mkt": "gr-GR"
+  },
+  {
+    "country": "BR",
+    "domain": "outlook.com.br",
+    "mkt": "pt-BR"
+  },
+  {
+    "country": "CL",
+    "domain": "outlook.cl",
+    "mkt": "es-CL"
+  },
+  {
+    "country": "FR",
+    "domain": "outlook.fr",
+    "mkt": "fr-FR"
+  },
+  {
+    "country": "ID",
+    "domain": "outlook.co.id",
+    "mkt": "id-ID"
+  },
+  {
+    "country": "HU",
+    "domain": "outlook.hu",
+    "mkt": "hu-HU"
+  },
+  {
+    "country": "IN",
+    "domain": "outlook.in",
+    "mkt": "in-IN"
+  },
+  {
+    "country": "IE",
+    "domain": "outlook.ie",
+    "mkt": "en-IE"
+  },
+  {
+    "country": "IL",
+    "domain": "outlook.co.il",
+    "mkt": "il-IL"
+  },
+  {
+    "country": "jp",
+    "domain": "outlook.jp",
+    "mkt": "ja-JP"
+  },
+  {
+    "country": "KR",
+    "domain": "outlook.kr",
+    "mkt": "kr-KR"
+  },
+  {
+    "country": "LV",
+    "domain": "outlook.lv",
+    "mkt": "lv-LV"
+  },
+  {
+    "country": "PT",
+    "domain": "outlook.pt",
+    "mkt": "pt-PT"
+  },
+  {
+    "country": "SG",
+    "domain": "outlook.sg",
+    "mkt": "sg-SG"
+  },
+  {
+    "country": "SK",
+    "domain": "outlook.sk",
+    "mkt": "sk-SK"
+  },
+  {
+    "country": "DE",
+    "domain": "outlook.de",
+    "mkt": "de-DE"
+  },
+  {
+    "country": "TH",
+    "domain": "outlook.co.th",
+    "mkt": "th-TH"
+  },
+  {
+    "country": "BE",
+    "domain": "outlook.be",
+    "mkt": "fr-BE"
+  },
+  {
+    "country": "IT",
+    "domain": "outlook.it",
+    "mkt": "it-IT"
+  },
+  {
+    "country": "SA",
+    "domain": "outlook.sa",
+    "mkt": "ar-SA"
+  }
+]
