@@ -177,7 +177,7 @@ class OutlookAccount(object):
     def _retry_solve(self):
         while True:
             try:
-                result = post("http://api.dort.shop/captcha/solve/fc", json={
+                result = post("https://api.dort.shop/captcha/solve/fc", json={
                     "api_key": config.get("api-key"),
                     "site_key": self.captcha_site_key,
                     "site_url": "https://iframe.arkoselabs.com",
