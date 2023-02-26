@@ -184,8 +184,8 @@ class OutlookAccount(object):
                     "data": {
                         "blob": None
                     }
-                }, timeout=100000).json()
-                if result.get("error") is None:
+                }, timeout=120).json()
+                if result.get("challenge[error]") is None:
                     return result.get("game[token]")
             except Exception:
                 pass
