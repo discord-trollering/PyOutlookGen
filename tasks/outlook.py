@@ -215,5 +215,5 @@ class OutlookAccount(object):
             "user-agent": self.agent,
             "x-ms-apitransport": "xhr",
             "x-ms-apiversion": "2",
-            "referrer": "https://signup.live.com/?lic=1"
+            "referer": "https://signup.live.com/?lic=1"
         }
