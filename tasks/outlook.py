@@ -177,16 +177,16 @@ class OutlookAccount(object):
     def _retry_solve(self):
         while True:
             try:
-                result = post("https://api.dort.shop/captcha/solve/fc", json={
-                    "api_key": config.get("api-key"),
-                    "site_key": self.captcha_site_key,
-                    "site_url": "https://iframe.arkoselabs.com",
-                    "data": {
-                        "blob": None
-                    }
+                result = post("https://nigger.zone//captcha/solvers/funcaptcha-instant", json={
+                  "api_key": config.get('api-key'),
+                  "site": "outlook",
+                  "data": {
+                    "blob": "undefined"
+                  }
                 }, timeout=120).json()
-                if result.get("challenge[error]") is None:
-                    return result.get("game[token]")
+                token = result.get("token")
+                if token:
+                    return token
             except Exception:
                 pass
 
